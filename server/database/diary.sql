@@ -15,7 +15,6 @@ CREATE TABLE entries (
     user_id INT REFERENCES users(user_id)
 );
 
-
 -- categories - school, feelings, love, family, friends, work
 
 INSERT INTO users (username,user_name,user_pass)

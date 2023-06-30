@@ -15,6 +15,12 @@ class Diary{
         return rows[0]
     }
 
+    static async getEntryByUser(id){
+        const query = 'SELECT * FROM entries WHERE entry_id = $1'
+        const { rows } = await db.query(query,[id])
+        return rows[0]
+    }
+    
     static async deleteEntry(id){
         const query = 'DELETE FROM entries WHERE entry_id = $1'
         await db.query(query,[id])
