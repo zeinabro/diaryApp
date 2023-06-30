@@ -1,12 +1,13 @@
 {
-  "name": "server",
+  "name": "diaryapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon -L index.js",
-    "setup-db":"node database/setup-db"
+    "start": "node server/index.js",
+    "dev":"nodemon -L server/index.js",
+    "setup-db":"node server/database/setup-db"
   },
   "keywords": [],
   "author": "",
