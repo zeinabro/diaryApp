@@ -22,6 +22,20 @@ class DiaryController{
         }
     }
 
+    static async getEntryByUser(req, res){
+        const { id } = req.params
+        try{
+            const entries = await Diary.getEntryByUser(id)
+            if(entries){
+                res.status(200).json(entries)
+            }else{
+                res.status(404).json({error: `User not found!`})
+            }
+        }catch(error){
+            res.status(500).json({error: `oops something went wrong - ${error}`})
+        }
+    }
+
 }
 
 module.exports = DiaryController

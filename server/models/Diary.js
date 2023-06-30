@@ -14,6 +14,12 @@ class Diary{
         const {rows} = await db.query(query,values)
         return rows[0]
     }
+
+    static async getEntryByUser(id){
+        const query = 'SELECT * FROM entries WHERE entry_id = $1'
+        const { rows } = await db.query(query,[id])
+        return rows[0]
+    }
 }
 
 module.exports = Diary
