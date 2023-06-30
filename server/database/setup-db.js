@@ -10,3 +10,5 @@ const db = require('./db')
 db.query(sql)
 .then(data => console.log('Set up complete'))
 .catch(error => console.log(error))
+
+// test comment
