@@ -19,6 +19,14 @@ class Diary{
         const query = 'DELETE FROM entries WHERE entry_id = $1'
         await db.query(query,[id])
     }
+
+    static async updateEntry(id, entry) {
+        const { date_time, category, content } = entry;
+        const query = 'UPDATE entries SET date_time = $1, category = $2, content = $3 WHERE entry_id = $4 RETURNING *';
+        const values = [date_time, category, content, id]
+        const { rows } = await db.query(query, values);
+        return rows[0];
+    }
 }
 
 module.exports = Diary

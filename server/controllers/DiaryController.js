@@ -32,6 +32,21 @@ class DiaryController{
         }
     }
 
+    static async updateEntry(req,res){
+        const {id} = req.params
+        const newEntry = req.body
+        try {
+            const entry = await Diary.updateEntry(id,newEntry)
+            if(entry){
+                res.status(200).json(entry)
+            }else{
+                res.status(404).json({error: `Entry not found`})
+            }
+        } catch (error) {
+            res.status(500).json({error:`Oops something went wrong - ${error}`})
+        }
+    }
+
 }
 
 module.exports = DiaryController
