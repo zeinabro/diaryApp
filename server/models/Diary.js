@@ -2,7 +2,7 @@ const db = require('../database/db')
 
 class Diary{
     static async getAllEntries(){
-        const query = 'SELECT * FROM entries'
+        const query = 'SELECT * FROM entries ORDER BY date_time DESC'
         const {rows} = await db.query(query)
         return rows
     }
