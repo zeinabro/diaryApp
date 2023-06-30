@@ -22,6 +22,16 @@ class DiaryController{
         }
     }
 
+    static async deleteEntry(req,res){
+        const {id} = req.params
+        try {
+            await Diary.deleteEntry(id)
+            res.status(204).end()
+        } catch (error) {
+            res.status(500).json({Error:`Error code - ${error}`})
+        }
+    }
+
 }
 
 module.exports = DiaryController
